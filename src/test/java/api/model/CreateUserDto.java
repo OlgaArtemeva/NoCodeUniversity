@@ -14,5 +14,6 @@ public class CreateUserDto {
     String full_name;
     String email;
     String password;
-    String generate_magic_link;
+    Object generate_magic_link;
+    Object Magic_link;
 }

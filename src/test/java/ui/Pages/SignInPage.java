@@ -14,14 +14,11 @@ public class SignInPage {
     private static final SelenideElement forgotPasswordLink = $x("//a[.='         Forgot password        ']");
     private static final SelenideElement signInPageSignUnButton = $x("//div[contains(@class, 'text-center ')]/a[@href='/sign-up']");
 
-
-
     @Step("Вводим Email: '{email}'")
     public SignInPage setLogin(String email){
         inputEmail.shouldBe(Condition.visible).sendKeys(email);
         return this;
     }
-
     @Step("Вводим пароль: '{password}'")
     public SignInPage setPassword(String password){
         inputPassword.shouldBe(Condition.visible).sendKeys(password);

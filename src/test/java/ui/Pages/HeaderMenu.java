@@ -42,4 +42,9 @@ public class HeaderMenu {
         addCourse.shouldBe(Condition.visible);
         avatar.shouldBe(Condition.visible);
     }
+
+    public StudentDirectoryPage clickStudentDirectory() {
+        studentDirectory.shouldBe(Condition.visible).click();
+        return new StudentDirectoryPage();
+    }
 }
