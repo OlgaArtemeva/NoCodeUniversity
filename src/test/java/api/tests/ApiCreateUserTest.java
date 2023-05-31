@@ -13,7 +13,7 @@ public class ApiCreateUserTest extends ApiBase {
     static CreateUserDto createUserDto;
     Response response;
 
-    @Test(testName = "0.0.1 API: successful user creation")
+    @Test(testName = "0.1.1 API: successful user creation")
     public void createUserApiTest() {
         createUserDto = new CreateUserDto();
         createUserDto.setFull_name("John3 Richardson");
@@ -22,9 +22,9 @@ public class ApiCreateUserTest extends ApiBase {
         createUserDto.setGenerate_magic_link(false);
         createUserDto.setMagic_link(null);
 
-//        bag-report: ID: [0.1.1.1] - erroneous success status when creating a user in API (200 - 201)
-        response = doPostRequest(EndPoint.CREATE_USER, 200, createUserDto);
-//        response = doPostRequest(EndPoint.CREATE_USER, 201, createUserDto);
+//TODO        bag-report: ID: [0.1.1.1] - erroneous success status when creating a user in API (200 - 201)
+//        response = doPostRequest(EndPoint.CREATE_USER, 200, createUserDto);
+        response = doPostRequest(EndPoint.CREATE_USER, 201, createUserDto);
 
         LocalDateTime currentTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

@@ -39,4 +39,12 @@ public class HomePage {
         buttonStudentDirectory.shouldBe(Condition.visible);
     }
 
+    public HomePage signIn(String email, String password) {
+        new HomePage()
+                .clickSignIn()
+                .setLogin(email)
+                .setPassword(password)
+                .login();
+        return new HomePage();
+    }
 }

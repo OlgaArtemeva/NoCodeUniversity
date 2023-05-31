@@ -10,7 +10,6 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
-import static java.lang.Thread.sleep;
 
 public class StudentDirectoryPage {
     private static final SelenideElement searchFieldStudentDirectory = $x("//input[@placeholder='Start typing to search']");
@@ -21,7 +20,6 @@ public class StudentDirectoryPage {
     public StudentDirectoryPage insertFullNameInSearchField(String fullName) {
         searchFieldStudentDirectory.scrollTo();
         searchFieldStudentDirectory.shouldBe(Condition.visible).setValue(fullName);
-//        return this;
         return new StudentDirectoryPage();
     }
 

@@ -4,6 +4,8 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Selenide.$x;
 
 public class HeaderMenu {
@@ -13,11 +15,14 @@ public class HeaderMenu {
 //    private static final SelenideElement coursesSelectMenu = $x("//*[@data-testid='ExpandLessIcon']");
     private static final SelenideElement coursesSelectMenu = $x("//*[@data-testid='ExpandMoreIcon']");
     private static final SelenideElement professors = $x("//span[normalize-space()='Professors']");
-    private static final SelenideElement HeaderMenuSignInButton = $x("//span[normalize-space()='Professors']");
-    private static final SelenideElement HeaderMenuSignUpButton = $x("//span[normalize-space()='Professors']");
+    private static final SelenideElement HeaderMenuSignInButton = $x("//span[.='Sign in']");
+    private static final SelenideElement HeaderMenuSignUpButton = $x("//span[.='Sign up']");
     private static final SelenideElement studentDirectory = $x("//span[normalize-space()='Student Directory']");
     private static final SelenideElement addCourse = $x("//span[.='Add course']");
     private static final SelenideElement avatar = $x("//button[@class='MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-17qbyv7']");
+    private static final SelenideElement myProfile = $x("//span[.='My Profile']");
+    private static final SelenideElement signOut = $x("//span[.='Sign Out']");
+
 
     //    @Step - для  отчетов Allure
     @Step("Проверяем наличие всех пунктов меню для NoRole")
@@ -46,5 +51,17 @@ public class HeaderMenu {
     public StudentDirectoryPage clickStudentDirectory() {
         studentDirectory.shouldBe(Condition.visible).click();
         return new StudentDirectoryPage();
+    }
+
+    public ProfilePage clickMyProfile() {
+        avatar.shouldBe(Condition.visible, Duration.ofSeconds(30)).click();
+        myProfile.shouldBe(Condition.visible, Duration.ofSeconds(30)).click();
+        return new ProfilePage();
+    }
+
+    public SignInPage clickSignOut() {
+        avatar.shouldBe(Condition.visible).click();
+        signOut.shouldBe(Condition.visible).click();
+        return new SignInPage();
     }
 }
