@@ -12,6 +12,7 @@ import java.time.format.DateTimeFormatter;
 public class ApiCreateUserTest extends ApiBase {
     static CreateUserDto createUserDto;
     Response response;
+
     @Test(testName = "0.1.1 API: successful user creation")
     public void createUserApiTest() {
         createUserDto = new CreateUserDto();
