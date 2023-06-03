@@ -15,14 +15,13 @@ public class StudentDirectoryPage {
     private static final SelenideElement searchFieldStudentDirectory = $x("//input[@placeholder='Start typing to search']");
     private ElementsCollection listNames = $$x("//div[@class='horizontal-list-item']");
     private static final SelenideElement userEmailFromSearchlist = $x("(//div[@class='label-wrapper vertical'])[5]");
-
     @Step("Insert full name into the search field: '{fullName}'")
     public StudentDirectoryPage insertFullNameInSearchField(String fullName) {
         searchFieldStudentDirectory.scrollTo();
         searchFieldStudentDirectory.shouldBe(Condition.visible).setValue(fullName);
         return new StudentDirectoryPage();
     }
-
+    @Step ("Select user in list")
     public void selectUserInList(String email) {
 
         boolean flag = false;

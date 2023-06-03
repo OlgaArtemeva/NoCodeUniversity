@@ -2,6 +2,7 @@ package ui.Tests;
 
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import ui.Pages.HomePage;
 
@@ -13,7 +14,6 @@ public class TestBase {
 //    private static final String studentEmail = "malik@example.com";
     private static final String studentEmail = "annab@example.com";
     private static final String password = "123456";
-
     @BeforeMethod
     public void setUp() {
         ChromeOptions chromeOptions = new ChromeOptions();
@@ -21,8 +21,8 @@ public class TestBase {
         Configuration.browserCapabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 
         open(url);
+//        Configuration.holdBrowserOpen = true;
     }
-
     @BeforeMethod(onlyForGroups = {"signInTeacher"})
     public HomePage signInTeacher() {
         new HomePage().signIn(teacherEmail, password);
@@ -33,6 +33,4 @@ public class TestBase {
             new HomePage().signIn(studentEmail, password);
         return new HomePage();
     }
-
-
 }

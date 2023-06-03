@@ -9,11 +9,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class CreateUserDto {
     String full_name;
     String email;
     String password;
-    Object generate_magic_link;
-    Object Magic_link;
+    Boolean generate_magic_link;
 }

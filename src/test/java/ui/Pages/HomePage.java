@@ -14,13 +14,11 @@ public class HomePage {
     private static final SelenideElement homePageSignInButton = $x("//a[contains(text(), 'Sign in')]");
     private static final SelenideElement buttonViewCourses = $x("//a[contains(text(), 'View Courses')]");
     private static final SelenideElement buttonStudentDirectory = $x("//a[contains(text(), 'Student Directory')]");
-
     @Step("Регистрируемся с TeacherRole")
     public SignInPage clickSignIn() {
         homePageSignInButton.shouldBe(Condition.visible).click();
         return new SignInPage();
     }
-
     @Step("Проверяем NoRole")
     public void checkHomePageNoRole() {
         welcome.shouldBe(Condition.visible);

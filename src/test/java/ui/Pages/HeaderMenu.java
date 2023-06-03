@@ -22,8 +22,6 @@ public class HeaderMenu {
     private static final SelenideElement avatar = $x("//button[@class='MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-17qbyv7']");
     private static final SelenideElement myProfile = $x("//span[.='My Profile']");
     private static final SelenideElement signOut = $x("//span[.='Sign Out']");
-
-
     //    @Step - для  отчетов Allure
     @Step("Проверяем наличие всех пунктов меню для NoRole")
     public void checkHeaderMenuNoRole(){
@@ -47,12 +45,10 @@ public class HeaderMenu {
         addCourse.shouldBe(Condition.visible);
         avatar.shouldBe(Condition.visible);
     }
-
     public StudentDirectoryPage clickStudentDirectory() {
         studentDirectory.shouldBe(Condition.visible).click();
         return new StudentDirectoryPage();
     }
-
     public ProfilePage clickMyProfile() {
         avatar.shouldBe(Condition.visible, Duration.ofSeconds(30)).click();
         myProfile.shouldBe(Condition.visible, Duration.ofSeconds(30)).click();

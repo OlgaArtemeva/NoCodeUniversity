@@ -15,7 +15,6 @@ public class SignInPage {
     private static final SelenideElement signInPageSignInButton = $x("//div[contains(@class, 'text-center ')]/a[@href='javascript:void(0);']");
     private static final SelenideElement forgotPasswordLink = $x("//a[.='         Forgot password        ']");
     private static final SelenideElement signInPageSignUnButton = $x("//div[contains(@class, 'text-center ')]/a[@href='/sign-up']");
-
     @Step("Вводим Email: '{email}'")
     public SignInPage setLogin(String email){
         inputEmail.shouldBe(Condition.visible).setValue(email);
