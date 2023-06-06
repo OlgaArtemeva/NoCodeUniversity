@@ -15,6 +15,7 @@ import static org.testng.Assert.assertEquals;
 public class ApiCreateUserTest extends ApiBase {
     static CreateUserDto createUserDto;
     Response response;
+
     @Issue("0.1.1 API: successful user creation")
     @Test(testName = "0.1.1 API: successful user creation")
     public void createUserApiTest() {

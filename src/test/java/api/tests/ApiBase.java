@@ -13,7 +13,7 @@ public class ApiBase {
     final String SOFTR_API_KEY = "khIbAyJIU5CIuh1oDuBRx1s49";
     final String BASE_URL = "https://studio-api.softr.io";
     final String SOFTR_DOMAIN = "jere237.softr.app";
-//    переменная spec
+    //    переменная spec
     RequestSpecification spec = new RequestSpecBuilder()
             .setBaseUri(BASE_URL)
             .setContentType(ContentType.JSON)
@@ -25,6 +25,7 @@ public class ApiBase {
     public void beforeApi() {
         RestAssured.filters(new AllureRestAssured());
     }
+
     public Response doPostRequest(EndPoint endPoint, Object body) {
         Response response = RestAssured.given()
                 .spec(spec)
