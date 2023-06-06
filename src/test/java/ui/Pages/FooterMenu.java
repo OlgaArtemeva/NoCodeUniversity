@@ -13,7 +13,7 @@ public class FooterMenu {
     private static final SelenideElement twitterLink = $x("//i[@class='fab fa-twitter']");
     private static final SelenideElement instagramLink = $x("//i[@class='fab fa-instagram']");
 
-    @Step("Проверяем наличие всех элементов в Futter")
+    @Step("Checking the Futter")
     public void checkFooterMenu() {
         rightText.shouldBe(Condition.visible);
         kovalItLink.shouldBe(Condition.visible);

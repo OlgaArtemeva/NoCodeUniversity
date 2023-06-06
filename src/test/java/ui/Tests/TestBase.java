@@ -1,6 +1,8 @@
 package ui.Tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -17,7 +19,11 @@ public class TestBase {
 
     @BeforeMethod
     public void setUp() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+//        отключаем параметр PageSource (не сохраняем)
+//        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().savePageSource(false));
         ChromeOptions chromeOptions = new ChromeOptions();
+//        можно открывать любые ссылки - *, для безопасности м. прописать конкретный сайт
         chromeOptions.addArguments("--remote-allow-origins=*");
         Configuration.browserCapabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 

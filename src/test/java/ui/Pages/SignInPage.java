@@ -16,19 +16,19 @@ public class SignInPage {
     private static final SelenideElement forgotPasswordLink = $x("//a[.='         Forgot password        ']");
     private static final SelenideElement signInPageSignUnButton = $x("//div[contains(@class, 'text-center ')]/a[@href='/sign-up']");
 
-    @Step("Вводим Email: '{email}'")
+    @Step("Insert Email: '{email}'")
     public SignInPage setLogin(String email) {
         inputEmail.shouldBe(Condition.visible).setValue(email);
         return this;
     }
 
-    @Step("Вводим пароль: '{password}'")
+    @Step("Insert password: '{password}'")
     public SignInPage setPassword(String password) {
         inputPassword.shouldBe(Condition.visible).setValue(password);
         return this;
     }
 
-    @Step("Кликаем кнопку 'Sign In'")
+    @Step("Click the button 'Sign In'")
     public HomePage login() {
         signInPageSignInButton.shouldBe(Condition.visible).click();
         return new HomePage();

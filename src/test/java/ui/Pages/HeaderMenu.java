@@ -24,7 +24,7 @@ public class HeaderMenu {
     private static final SelenideElement signOut = $x("//span[.='Sign Out']");
 
     //    @Step - для  отчетов Allure
-    @Step("Проверяем наличие всех пунктов меню для NoRole")
+    @Step("Checking the Header menu for NoRole")
     public void checkHeaderMenuNoRole() {
         noCodeUniversityLink.shouldBe(Condition.visible);
         aboutUsLink.shouldBe(Condition.visible);
@@ -36,7 +36,7 @@ public class HeaderMenu {
 //        studentDirectory.shouldBe(Condition.visible);
     }
 
-    @Step("Проверяем наличие всех пунктов меню для TeacherRole")
+    @Step("Checking the Header menu for TeacherRole")
     public void checkHeaderMenuTeacherRole() {
         noCodeUniversityLink.shouldBe(Condition.visible);
         aboutUsLink.shouldBe(Condition.visible);
@@ -48,17 +48,20 @@ public class HeaderMenu {
         avatar.shouldBe(Condition.visible);
     }
 
+    @Step("Click Student Directory")
     public StudentDirectoryPage clickStudentDirectory() {
         studentDirectory.shouldBe(Condition.visible).click();
         return new StudentDirectoryPage();
     }
 
+    @Step("Click MyProfile")
     public ProfilePage clickMyProfile() {
         avatar.shouldBe(Condition.visible, Duration.ofSeconds(30)).click();
         myProfile.shouldBe(Condition.visible, Duration.ofSeconds(30)).click();
         return new ProfilePage();
     }
 
+    @Step("Click SignOut")
     public SignInPage clickSignOut() {
         avatar.shouldBe(Condition.visible).click();
         signOut.shouldBe(Condition.visible).click();
