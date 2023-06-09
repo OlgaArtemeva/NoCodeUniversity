@@ -2,6 +2,7 @@ package ui.Tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
@@ -13,10 +14,10 @@ import static com.codeborne.selenide.Selenide.open;
 public class TestBase {
     private static final String url = "https://jere237.softr.app/";
     private static final String teacherEmail = "roxanne@example.com";
-    //    private static final String studentEmail = "malik@example.com";
     private static final String studentEmail = "annab@example.com";
     private static final String password = "123456";
 
+    @Step("setUp")
     @BeforeMethod
     public void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
@@ -31,12 +32,14 @@ public class TestBase {
 //        Configuration.holdBrowserOpen = true;
     }
 
+    @Step("signInTeacher")
     @BeforeMethod(onlyForGroups = {"signInTeacher"})
     public HomePage signInTeacher() {
         new HomePage().signIn(teacherEmail, password);
         return new HomePage();
     }
 
+    @Step("signInStudent")
     @BeforeMethod(onlyForGroups = {"signInStudent"})
     public HomePage signInStudent() {
         new HomePage().signIn(studentEmail, password);

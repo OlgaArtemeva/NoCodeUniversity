@@ -12,7 +12,6 @@ public class HeaderMenu {
     private static final SelenideElement noCodeUniversityLink = $x("//a[@class='navbar-brand']");
     private static final SelenideElement aboutUsLink = $x("//span[normalize-space()='About Us']");
     private static final SelenideElement coursesLink = $x("//span[normalize-space()='Courses']");
-    //    private static final SelenideElement coursesSelectMenu = $x("//*[@data-testid='ExpandLessIcon']");
     private static final SelenideElement coursesSelectMenu = $x("//*[@data-testid='ExpandMoreIcon']");
     private static final SelenideElement professors = $x("//span[normalize-space()='Professors']");
     private static final SelenideElement HeaderMenuSignInButton = $x("//span[.='Sign in']");
@@ -23,7 +22,6 @@ public class HeaderMenu {
     private static final SelenideElement myProfile = $x("//span[.='My Profile']");
     private static final SelenideElement signOut = $x("//span[.='Sign Out']");
 
-    //    @Step - для  отчетов Allure
     @Step("Checking the Header menu for NoRole")
     public void checkHeaderMenuNoRole() {
         noCodeUniversityLink.shouldBe(Condition.visible);

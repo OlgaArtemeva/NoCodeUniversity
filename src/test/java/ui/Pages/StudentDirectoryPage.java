@@ -20,7 +20,7 @@ public class StudentDirectoryPage {
     public StudentDirectoryPage insertFullNameInSearchField(String fullName) {
         searchFieldStudentDirectory.scrollTo();
         searchFieldStudentDirectory.shouldBe(Condition.visible).setValue(fullName);
-        return new StudentDirectoryPage();
+        return this;
     }
 
     @Step("Select user in list")
@@ -43,5 +43,4 @@ public class StudentDirectoryPage {
             throw new RuntimeException("API-created user in generated list is not found!");
         }
     }
-
 }
