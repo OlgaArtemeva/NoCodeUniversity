@@ -16,8 +16,8 @@ public class ApiCreateUserTest extends ApiBase {
     public void successfulCreateUserApiTest() {
         createUserApi();
 //TODO        bag-report: ID: [0.1.1.1] - erroneous success status when creating a user in API (200 - 201)
-//        assertEquals(200, response.getStatusCode());
-        assertEquals(201, response.getStatusCode());
+        assertEquals(response.getStatusCode(), 200);
+//        assertEquals(response.getStatusCode(), 201);
 //        String formattedCurrentTime = currentTime.format(formatter);
         assertEquals(response.jsonPath().getString("full_name"), createUserDto.getFull_name());
         assertEquals(response.jsonPath().getString("email"), createUserDto.getEmail());

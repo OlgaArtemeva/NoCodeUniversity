@@ -14,7 +14,10 @@ import org.testng.annotations.BeforeMethod;
 public class ApiBase {
     final String SOFTR_API_KEY = "khIbAyJIU5CIuh1oDuBRx1s49";
     final String BASE_URL = "https://studio-api.softr.io";
-    final String SOFTR_DOMAIN = "jere237.softr.app";
+    //    Version 1.4.1
+//    final String SOFTR_DOMAIN = "jere237.softr.app";
+    //    Version 1.4.2
+    final String SOFTR_DOMAIN = "erich416.softr.app";
     protected CreateUserDto createUserDto;
     protected Response response;
     //    переменная spec
@@ -24,7 +27,7 @@ public class ApiBase {
             .addHeader("Softr-Api-Key", SOFTR_API_KEY)
             .addHeader("Softr-Domain", SOFTR_DOMAIN)
             .build();
-    
+
     public ApiBase() {
         createUserDto = CreateUserDto.builder()
                 .full_name("John3 Richardson")

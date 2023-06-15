@@ -27,20 +27,27 @@ public class StudentDirectoryPage {
     public void selectUserInList(String email) {
 
         boolean flag = false;
-        listNames.shouldBe(CollectionCondition.sizeGreaterThan(0), Duration.ofSeconds(30));
+
+//        listNames.shouldBe(CollectionCondition.sizeGreaterThan(0), Duration.ofSeconds(30));
+
+        try {
+            listNames.shouldBe(CollectionCondition.sizeGreaterThan(0), Duration.ofSeconds(10));
+        } catch (AssertionError e) {
+            System.out.println(e.getMessage() + "API-created user is not found!");
+        }
 
         for (int i = 0; i < listNames.size(); i++) {
             SelenideElement listName = listNames.get(i);
-            listName.shouldBe(Condition.visible, Duration.ofSeconds(120)).click();
+            listName.shouldBe(Condition.visible, Duration.ofSeconds(30)).click();
             if (userEmailFromSearchlist.shouldBe(Condition.visible, Duration.ofSeconds(30)).getText().equals(email)) {
                 flag = true;
-                System.out.println("!!!! " + i + ' ' + userEmailFromSearchlist.getText());
+                System.out.println("API-created user is found! (email: " + userEmailFromSearchlist.getText() + ", number in the list: " + i + ")");
                 break;
             }
         }
 
         if (flag == false) {
-            throw new RuntimeException("API-created user in generated list is not found!");
+            throw new RuntimeException("API-created user is not found!");
         }
     }
 }
