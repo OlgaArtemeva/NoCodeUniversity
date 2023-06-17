@@ -5,6 +5,6 @@ Two versions of the site were tested (Version 1.4.1 - https://jere237.softr.app,
 
 Test cases and bug reports are in directory Doc.
 
-Part of the tests was automated using POM and using Selenium and Allure:
- - API tests are run from Package api/Tests
- - UI tests are run from Package ui/Tests
+A part of the tests was automated using POM and using Selenium and Allure:
+ - API tests run from the package api/Tests
+ - UI tests run from the package ui/Tests
