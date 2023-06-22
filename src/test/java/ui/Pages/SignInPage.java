@@ -3,7 +3,6 @@ package ui.Pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import org.testng.annotations.BeforeMethod;
 
 import java.time.Duration;
 
@@ -31,6 +30,7 @@ public class SignInPage {
     @Step("Click the button 'Sign In'")
     public HomePage login() {
         signInPageSignInButton.shouldBe(Condition.visible).click();
+        signInPageSignInButton.shouldBe(Condition.hidden, Duration.ofSeconds(20));
         return new HomePage();
     }
 }

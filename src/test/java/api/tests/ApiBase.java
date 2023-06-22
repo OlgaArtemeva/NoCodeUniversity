@@ -1,6 +1,6 @@
 package api.tests;
 
-import api.enums.EndPoint;
+import enums.EndPoint;
 import api.model.CreateUserDto;
 import io.qameta.allure.Step;
 import io.qameta.allure.restassured.AllureRestAssured;

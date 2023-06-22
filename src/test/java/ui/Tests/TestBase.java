@@ -1,7 +1,9 @@
 package ui.Tests;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+
 import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -13,9 +15,9 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class TestBase {
     //    Version 1.4.1
-//    private static final String url = "https://jere237.softr.app/";
-//    Version 1.4.2
-    private static final String url = "https://erich416.softr.app/";
+    private static final String url = "https://jere237.softr.app/";
+    //    Version 1.4.2
+//    private static final String url = "https://erich416.softr.app/";
     private static final String teacherEmail = "roxanne@example.com";
     private static final String studentEmail = "annab@example.com";
     private static final String password = "123456";
@@ -47,5 +49,12 @@ public class TestBase {
     public HomePage signInStudent() {
         new HomePage().signIn(studentEmail, password);
         return new HomePage();
+    }
+
+    @Step("deleteCourseMaterial")
+    @AfterMethod(onlyForGroups = {"deleteCourseMaterial"})
+    public void deleteCourseMaterial() {
+//        new HomePage().signIn(studentEmail, password);
+//        return new HomePage();
     }
 }

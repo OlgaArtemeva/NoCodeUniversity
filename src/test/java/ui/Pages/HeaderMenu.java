@@ -2,16 +2,19 @@ package ui.Pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Step;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class HeaderMenu {
     private static final SelenideElement noCodeUniversityLink = $x("//a[@class='navbar-brand']");
     private static final SelenideElement aboutUsLink = $x("//span[normalize-space()='About Us']");
     private static final SelenideElement coursesLink = $x("//span[normalize-space()='Courses']");
+    private static final SelenideElement courseList = $x("//span[text()='Course list']");
     private static final SelenideElement coursesSelectMenu = $x("//*[@data-testid='ExpandMoreIcon']");
     private static final SelenideElement professors = $x("//span[normalize-space()='Professors']");
     private static final SelenideElement HeaderMenuSignInButton = $x("//span[.='Sign in']");
@@ -64,5 +67,12 @@ public class HeaderMenu {
         avatar.shouldBe(Condition.visible).click();
         signOut.shouldBe(Condition.visible).click();
         return new SignInPage();
+    }
+
+    @Step("Click Course List")
+    public CourseListPage clickCourseList() {
+        coursesLink.shouldBe(Condition.visible, Duration.ofSeconds(10)).click();
+        courseList.shouldBe(Condition.visible, Duration.ofSeconds(10)).click();
+        return new CourseListPage();
     }
 }

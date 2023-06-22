@@ -28,8 +28,6 @@ public class StudentDirectoryPage {
 
         boolean flag = false;
 
-//        listNames.shouldBe(CollectionCondition.sizeGreaterThan(0), Duration.ofSeconds(30));
-
         try {
             listNames.shouldBe(CollectionCondition.sizeGreaterThan(0), Duration.ofSeconds(10));
         } catch (AssertionError e) {
