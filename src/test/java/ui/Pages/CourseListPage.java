@@ -25,8 +25,9 @@ public class CourseListPage {
         return this;
     }
 
+    //
     @Step("select course from list")
-    public SelenideElement selectCourse() {
+    public CourseDetailsPage selectCourse() {
 
         try {
             courseNames.shouldBe(CollectionCondition.sizeGreaterThan(0), Duration.ofSeconds(10));
@@ -34,6 +35,7 @@ public class CourseListPage {
             System.out.println(e.getMessage() + "Courses from \"" + teacher.getFullName() + "\" are not found!");
         }
         Random random = new Random();
-        return courseNames.get(random.nextInt(courseNames.size()));
+        courseNames.get(random.nextInt(courseNames.size())).click();
+        return new CourseDetailsPage();
     }
 }

@@ -6,6 +6,7 @@ import ui.Pages.*;
 
 import static enums.TestData.document;
 import static enums.TestData.teacher;
+import static java.lang.Thread.sleep;
 
 public class Tests extends TestBase {
     @Issue("1.2.1 Authorization with teacher role")
@@ -41,16 +42,15 @@ public class Tests extends TestBase {
     @Issue("1.5.1 Upload course material")
     @Test(testName = "1.5.1 Upload course material", groups = {"signInTeacher", "deleteCourseMaterial"})
 
-    public void uploadCourseMaterial() {
+    public void uploadCourseMaterial() throws InterruptedException {
         new HeaderMenu()
                 .clickCourseList()
                 .setTeacherFullNameInSearch(teacher.getFullName())
-                .selectCourse()
-                .click();
-//        sleep(2000);
+                .selectCourse();
         new CourseDetailsPage()
-                .setDocumentName(document.getDocumentName());
-//                .uploadDocument()
-//                .clickUpload();
+                .setDocumentName(document.getDocumentName())
+                .uploadDocument()
+                .clickUpload();
+        sleep(2000);
     }
 }
