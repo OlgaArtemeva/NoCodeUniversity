@@ -9,14 +9,17 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import ui.Pages.CourseDetailsPage;
 import ui.Pages.HomePage;
+import ui.Pages.StudentDirectoryPage;
 
 import static com.codeborne.selenide.Selenide.open;
+import static enums.TestData.document;
 
 public class TestBase {
-    //    Version 1.4.1
+    //    Version 1.4.1 - https://jere237.softr.app/
 //    private static final String url = "https://jere237.softr.app/";
-    //    Version 1.4.2
+    //    Version 1.4.2 - https://erich416.softr.app/
     private static final String url = "https://erich416.softr.app/";
     private static final String teacherEmail = "roxanne@example.com";
     private static final String studentEmail = "annab@example.com";
@@ -54,7 +57,8 @@ public class TestBase {
     @Step("deleteCourseMaterial")
     @AfterMethod(onlyForGroups = {"deleteCourseMaterial"})
     public void deleteCourseMaterial() {
-//        new HomePage().signIn(studentEmail, password);
-//        return new HomePage();
+        new CourseDetailsPage()
+                .checkUploadCourseMaterial(document.getDocumentName())
+                .deleteUploadedCourseMaterial(document.getDocumentName());
     }
 }

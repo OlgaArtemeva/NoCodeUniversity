@@ -25,7 +25,6 @@ public class CourseListPage {
         return this;
     }
 
-    //
     @Step("select course from list")
     public CourseDetailsPage selectCourse() {
 

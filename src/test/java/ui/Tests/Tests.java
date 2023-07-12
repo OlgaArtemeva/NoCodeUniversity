@@ -6,7 +6,9 @@ import ui.Pages.*;
 
 import static enums.TestData.document;
 import static enums.TestData.teacher;
-import static java.lang.Thread.sleep;
+
+import static com.codeborne.selenide.Selenide.*;
+
 
 public class Tests extends TestBase {
     @Issue("1.2.1 Authorization with teacher role")
@@ -20,7 +22,6 @@ public class Tests extends TestBase {
                 .checkFooterMenu();
     }
 
-    //    аннотация для Allure
     @Issue("1.4.6 Change the password in the user profile with the student role")
     @Test(testName = "1.4.6 Change the password in the user profile with the student role", groups = {"signInStudent"})
     public void changePasswordStudent() {
@@ -42,7 +43,7 @@ public class Tests extends TestBase {
     @Issue("1.5.1 Upload course material")
     @Test(testName = "1.5.1 Upload course material", groups = {"signInTeacher", "deleteCourseMaterial"})
 
-    public void uploadCourseMaterial() throws InterruptedException {
+    public void uploadCourseMaterial() {
         new HeaderMenu()
                 .clickCourseList()
                 .setTeacherFullNameInSearch(teacher.getFullName())
@@ -51,6 +52,6 @@ public class Tests extends TestBase {
                 .setDocumentName(document.getDocumentName())
                 .uploadDocument()
                 .clickUpload();
-        sleep(2000);
+        refresh();
     }
 }
